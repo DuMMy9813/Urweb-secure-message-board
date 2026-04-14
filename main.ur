@@ -1,28 +1,47 @@
 
-fun main () =
-  return <html>
-    <head>
-      <title>Secure Message Board</title>
-    </head>
+table messages : { Id : int, Content : string }
+  PRIMARY KEY Id
 
-    <body>
-      <h1>Secure Student Message Board</h1>
+sequence msgSeq
 
-      <h2>Login</h2>
-      <form>
-        <p>Username: <input type="text"/></p>
-        <p>Password: <input type="password"/></p>
-        <button>Login</button>
-      </form>
+(* Add a new message *)
+fun addMessage (msg : string) : transaction unit =
+    id <- nextval msgSeq;
+    dml (INSERT INTO messages (Id, Content)
+         VALUES ({[id]}, {[msg]}));
+    return ()
 
-      <h2>Post Message</h2>
-      <form>
-        <p>Message: <input type="text"/></p>
-        <button>Post</button>
-      </form>
+(* Display all messages *)
+fun listMessages () : transaction xbody =
+    rows <- queryX (SELECT * FROM messages)
+        (fn r =>
+            <xml>
+                <li>{[r.Content]}</li>
+            </xml>);
+    return <xml><ul>{rows}</ul></xml>
 
-      <h2>Messages</h2>
-      <p>No messages yet (prototype stage).</p>
+(* Main page *)
+fun main () : transaction page =
+    msgs <- listMessages ();
 
-    </body>
-  </html>
+    return <xml>
+        <head>
+            <title>Secure Message Board</title>
+        </head>
+        <body>
+            <h1>Message Board</h1>
+
+            <form>
+                <textbox{#msg}/>
+                <button value="Post"
+                    onclick={fn _ =>
+                        m <- get msg;
+                        rpc (addMessage m);
+                        return ()
+                    }/>
+            </form>
+
+            <h2>Messages</h2>
+            {msgs}
+        </body>
+    </xml>
