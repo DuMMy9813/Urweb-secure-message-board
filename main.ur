@@ -1,4 +1,3 @@
-
 table messages : { Id : int, Username : string, Content : string }
   PRIMARY KEY Id
 
@@ -69,4 +68,3 @@ fun main () : transaction page =
             </body>
         </xml>
     end
-
