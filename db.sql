@@ -1,4 +1,3 @@
-
 CREATE TABLE uw_messages (
     uw_Id INT PRIMARY KEY,
     uw_Username TEXT NOT NULL,
