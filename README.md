@@ -5,6 +5,7 @@
 This project is a secure web application developed using **Ur/Web**, demonstrating the principles of *security-by-design* in web application development. The system implements a simple message board where users can enter a username and post messages, which are then displayed to all users.
 
 The primary objective of this project is not to build a complex application, but to critically analyse how Ur/Web enforces security at the language level, preventing common web vulnerabilities such as SQL injection and Cross-Site Scripting (XSS).
+The implementation consists of a minimal Ur/Web application with a backend SQL database and a web-based interface for message submission and display.
 
 ---
 
