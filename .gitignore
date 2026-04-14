@@ -1,21 +1,4 @@
-# Compiled output
 *.exe
 *.o
-*.out
-
-# Ur/Web build artifacts
-*.urp
-*.urs~
-*.ur~
-_*
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Editor folders
-.vscode/
-.idea/
-
-# Logs
-*.log
+*.hi
+*.db
