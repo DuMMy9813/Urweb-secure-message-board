@@ -1,0 +1,4 @@
+database dbname=messageboard
+sql db.sql
+
+main
