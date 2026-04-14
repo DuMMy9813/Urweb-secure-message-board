@@ -34,8 +34,8 @@ The system operates as follows:
 
 ### Outputs:
 
-* Confirmation of message submission
 * List of posted messages
+* Updated message list including the newly submitted message
 
 ---
 
@@ -90,6 +90,7 @@ In both cases, Ur/Web safely handles the input without executing malicious behav
 1. Install Ur/Web from: http://www.impredicative.com/ur/
 2. Compile the project using:
    urweb main
+   ./main.exe
 3. Run the generated executable:
    ./main.exe
 4. Open a browser and go to:
@@ -109,7 +110,7 @@ In both cases, Ur/Web safely handles the input without executing malicious behav
 
 ## 9. Conclusion
 
-This project demonstrates that secure web applications can be built using language-level guarantees rather than relying solely on developer discipline. Ur/Web provides strong static typing and built-in security mechanisms that eliminate entire classes of vulnerabilities, making it a powerful framework for secure web development.
+This project demonstrates that secure web applications can be built using language-level guarantees rather than relying solely on developer discipline. Ur/Web provides strong static typing and built-in security mechanisms that eliminate entire classes of vulnerabilities, making it a powerful framework for secure web development. This highlights the advantage of using domain-specific languages for secure system design in modern web development.
 
 ---
 
